@@ -2,7 +2,7 @@ class Module
 
   def include_remove mod
     raise TypeError.new('expected Module') unless mod.instance_of?(Module)
-    raise ArgumentError.new('prohibited removing Kernel') if mod == Kernel
+    raise ArgumentError.new('prohibited from removing Kernel') if mod == Kernel
 
     target, prev = superclass_chain.inject(self){ |prev, ancestor|
       if ancestor.kind_of?(IncludedModule) && ancestor.module == mod
